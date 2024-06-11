@@ -9,3 +9,7 @@ func NewString() String {
 func (s String) String() string {
 	return string(s)
 }
+
+func (s String) Ptr() *String {
+	return &s
+}
