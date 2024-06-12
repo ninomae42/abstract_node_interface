@@ -1,7 +1,5 @@
 package node
 
-import "github.com/ninomae42/node_interface/domain"
-
 type InputType string
 
 const (
