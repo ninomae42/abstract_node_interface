@@ -1,7 +1,5 @@
 package node
 
-import "fmt"
-
 type Type string
 
 const (
