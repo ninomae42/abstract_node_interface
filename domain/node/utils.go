@@ -18,6 +18,9 @@ func PrintNode(n Node) {
 	case *NumberInputNode:
 		fmt.Println("NumberInputNode")
 		fmt.Printf("ID: %v, Label: %v, Required: %v, Unit: %v\n", n.ID(), n.Label, n.Required, n.Unit)
+	case *PreviewNode:
+		fmt.Println("PreviewNode")
+		fmt.Printf("ID: %v, Text: %v\n", n.ID(), n.Text)
 	default:
 		fmt.Println("Unknown Node")
 	}

@@ -29,6 +29,9 @@ const (
 
 	// NodeTypeInput is an input node type
 	NodeTypeInput Type = "NODE_INPUT"
+
+	// NodeTypePreview is a preview node type
+	NodeTypePreview Type = "NODE_PREVIEW"
 )
 
 const (

@@ -51,6 +51,9 @@ func BuildNodeTree(nodes []Node, rels []ParentChildRelation, rootID domain.ID) (
 		case *NumberInputNode:
 			in := *n
 			nMap[in.ID()] = &in
+		case *PreviewNode:
+			pn := *n
+			nMap[pn.ID()] = &pn
 		default:
 			return nil, ErrBuildNodeTreeUnknownNodeTypeFound
 		}

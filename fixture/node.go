@@ -69,3 +69,26 @@ func TextInputNodeWithMaxLength(maxLength int) func(*node.TextInputNode) {
 		n.MaxLength = maxLength
 	}
 }
+
+func PreviewNode(opts ...func(*node.PreviewNode)) *node.PreviewNode {
+	n := &node.PreviewNode{
+		NodeID: domain.NewID(),
+		Text:   domain.NewString(),
+	}
+	for _, opt := range opts {
+		opt(n)
+	}
+	return n
+}
+
+func PreviewNodeWithID(id domain.ID) func(*node.PreviewNode) {
+	return func(n *node.PreviewNode) {
+		n.NodeID = id
+	}
+}
+
+func PreviewNodeWithText(text domain.String) func(*node.PreviewNode) {
+	return func(n *node.PreviewNode) {
+		n.Text = text
+	}
+}
