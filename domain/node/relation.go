@@ -5,11 +5,6 @@ import (
 )
 
 type (
-	Node interface {
-		ID() domain.ID
-		Type() Type
-	}
-
 	Relation struct {
 		AncestorID   domain.ID
 		DescendantID domain.ID

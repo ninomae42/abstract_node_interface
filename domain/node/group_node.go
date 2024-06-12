@@ -4,6 +4,16 @@ import (
 	"github.com/ninomae42/node_interface/domain"
 )
 
+type GroupLevel string
+
+const (
+	GroupLevel1 GroupLevel = "GROUP_LEVEL_1"
+	GroupLevel2 GroupLevel = "GROUP_LEVEL_2"
+	GroupLevel3 GroupLevel = "GROUP_LEVEL_3"
+	GroupLevel4 GroupLevel = "GROUP_LEVEL_4"
+	GroupLevel5 GroupLevel = "GROUP_LEVEL_5"
+)
+
 type GroupNode struct {
 	NodeID domain.ID
 	Label  domain.String
@@ -15,8 +25,10 @@ type GroupNode struct {
 	Nodes []*Node
 }
 
-func (n GroupNode) ID() domain.ID { return n.NodeID }
-func (GroupNode) Type() Type      { return NodeTypeGroup }
+var _ Node = (*GroupNode)(nil)
+
+func (n *GroupNode) ID() domain.ID { return n.NodeID }
+func (*GroupNode) Type() Type      { return NodeTypeGroup }
 
 func (g *GroupNode) AddNode(n []Node) {
 	for _, node := range n {
