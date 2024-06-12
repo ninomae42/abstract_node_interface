@@ -51,6 +51,10 @@ func main() {
 			fixture.TextInputNodeWithID(domain.ID("1-3")),
 			fixture.TextInputNodeWithLabel(domain.String("input4")),
 		),
+		fixture.PreviewNode(
+			fixture.PreviewNodeWithID(domain.ID("1-4")),
+			fixture.PreviewNodeWithText(domain.String("some text to show in preview node")),
+		),
 	}
 
 	root.AddNode(subs)

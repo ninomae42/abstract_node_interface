@@ -49,6 +49,8 @@ func (g GroupNode) Flatten() ([]Node, error) {
 			nodes = append(nodes, subnodes...)
 		case *TextInputNode, *NumberInputNode:
 			nodes = append(nodes, n)
+		case *PreviewNode:
+			nodes = append(nodes, n)
 		default:
 			return []Node{}, ErrFlattenUnknownNodeTypeFound
 		}
@@ -74,7 +76,7 @@ func (g GroupNode) getNodeRelation(depth int, ancestorStack []Node) ([]Relation,
 				return []Relation{}, err
 			}
 			rels = append(rels, subRels...)
-		case *TextInputNode, *NumberInputNode:
+		case *TextInputNode, *NumberInputNode, *PreviewNode:
 			subRels := getNodeRelationFromInputNode(depth+1, ancestorStack, n)
 			rels = append(rels, subRels...)
 		default:
