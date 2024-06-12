@@ -6,8 +6,8 @@ import (
 	"sort"
 
 	"github.com/ninomae42/node_interface/domain"
+	"github.com/ninomae42/node_interface/domain/node"
 	"github.com/ninomae42/node_interface/fixture"
-	"github.com/ninomae42/node_interface/node"
 )
 
 func main() {

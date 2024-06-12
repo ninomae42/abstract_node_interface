@@ -2,7 +2,7 @@ package fixture
 
 import (
 	"github.com/ninomae42/node_interface/domain"
-	"github.com/ninomae42/node_interface/node"
+	"github.com/ninomae42/node_interface/domain/node"
 )
 
 func GroupNode(opts ...func(*node.GroupNode)) *node.GroupNode {
