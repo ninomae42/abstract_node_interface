@@ -24,7 +24,10 @@ type (
 )
 
 const (
+	// NodeTypeGroup is a group node type
 	NodeTypeGroup Type = "NODE_GROUP"
+
+	// NodeTypeInput is an input node type
 	NodeTypeInput Type = "NODE_INPUT"
 )
 
