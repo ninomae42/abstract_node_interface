@@ -3,19 +3,23 @@ package node
 import "github.com/ninomae42/node_interface/domain"
 
 type (
+	// Node All node types implement the Node interface
 	Node interface {
-		ID() domain.ID
-		Type() Type
+		ID() domain.ID // ID returns the node's ID
+		Type() Type    // Type returns the node's type
 	}
 
+	// InputNode All input node types implement the InputNode interface
 	InputNode interface {
 		Node
-		InputType() InputType
+		InputType() InputType // InputType returns the input node's input type
 	}
 )
 
 type (
-	Type      string
+	// Type is a type of node
+	Type string
+	// InputType is a type of input node
 	InputType string
 )
 
