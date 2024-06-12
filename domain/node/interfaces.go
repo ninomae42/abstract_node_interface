@@ -13,3 +13,18 @@ type (
 		InputType() InputType
 	}
 )
+
+type (
+	Type      string
+	InputType string
+)
+
+const (
+	NodeTypeGroup Type = "NODE_GROUP"
+	NodeTypeInput Type = "NODE_INPUT"
+)
+
+const (
+	InputTypeText   InputType = "INPUT_TEXT"
+	InputTypeNumber InputType = "INPUT_NUMBER"
+)
