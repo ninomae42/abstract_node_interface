@@ -15,8 +15,10 @@ type GroupNode struct {
 	Nodes []*Node
 }
 
-func (n GroupNode) ID() domain.ID { return n.NodeID }
-func (GroupNode) Type() Type      { return NodeTypeGroup }
+var _ Node = (*GroupNode)(nil)
+
+func (n *GroupNode) ID() domain.ID { return n.NodeID }
+func (*GroupNode) Type() Type      { return NodeTypeGroup }
 
 func (g *GroupNode) AddNode(n []Node) {
 	for _, node := range n {

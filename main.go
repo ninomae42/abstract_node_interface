@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"sort"
 
 	"github.com/ninomae42/node_interface/domain"
 	"github.com/ninomae42/node_interface/domain/node"
@@ -29,12 +28,28 @@ func main() {
 					fixture.TextInputNodeWithLabel(domain.String("input1")),
 					fixture.TextInputNodeWithMaxLength(1),
 				),
+				fixture.TextInputNode(
+					fixture.TextInputNodeWithID(domain.ID("1-1-2")),
+					fixture.TextInputNodeWithLabel(domain.String("input2")),
+					fixture.TextInputNodeWithMaxLength(2),
+				),
 			),
 		),
 		fixture.GroupNode(
 			fixture.GroupNodeWithID(domain.ID("1-2")),
 			fixture.GroupNodeWithLabel(domain.String("sub2")),
 			fixture.GroupNodeWithLevel(node.GroupLevel2),
+			fixture.GroupNodeWithNodes(
+				fixture.TextInputNode(
+					fixture.TextInputNodeWithID(domain.ID("1-2-1")),
+					fixture.TextInputNodeWithLabel(domain.String("input3")),
+					fixture.TextInputNodeWithMaxLength(3),
+				),
+			),
+		),
+		fixture.TextInputNode(
+			fixture.TextInputNodeWithID(domain.ID("1-3")),
+			fixture.TextInputNodeWithLabel(domain.String("input4")),
 		),
 	}
 
@@ -52,9 +67,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	sort.Slice(rels, func(i, j int) bool {
-		return rels[i].AncestorID < rels[j].AncestorID
-	})
+	// sort.Slice(rels, func(i, j int) bool {
+	// 	return rels[i].AncestorID < rels[j].AncestorID
+	// })
 
 	fmt.Println("relations")
 	for _, rel := range rels {
