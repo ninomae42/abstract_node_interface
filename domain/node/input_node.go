@@ -15,16 +15,6 @@ type (
 		InputType() InputType
 	}
 
-	TextInputNode struct {
-		NodeID domain.ID
-
-		Label domain.String
-
-		Required bool
-
-		MaxLength int
-	}
-
 	NumberInputNode struct {
 		NodeID domain.ID
 
@@ -36,23 +26,8 @@ type (
 	}
 )
 
-var _ InputNode = (*TextInputNode)(nil)
-
-func (n *TextInputNode) ID() domain.ID        { return n.NodeID }
-func (n *TextInputNode) Type() Type           { return NodeTypeInput }
-func (n *TextInputNode) InputType() InputType { return InputTypeText }
-
 var _ InputNode = (*NumberInputNode)(nil)
 
 func (n *NumberInputNode) ID() domain.ID        { return n.NodeID }
 func (n *NumberInputNode) Type() Type           { return NodeTypeInput }
 func (n *NumberInputNode) InputType() InputType { return InputTypeNumber }
-
-func NewTextInputNode(label domain.String, required bool, maxLength int) *TextInputNode {
-	return &TextInputNode{
-		NodeID:    domain.NewID(),
-		Label:     label,
-		Required:  required,
-		MaxLength: maxLength,
-	}
-}
